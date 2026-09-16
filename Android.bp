@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+soong_namespace {}
 
 cc_library_static {
     name: "lib_driver_cmd_slsi",
@@ -31,5 +32,15 @@ cc_library_static {
         "external/wpa_supplicant_8/src/wps",
         "external/wpa_supplicant_8/wpa_supplicant",
         "external/libnl/include",
+    ],
+}
+
+prebuilt_etc {
+    name: "wpa_supplicant.conf",
+    src: ":wpa_supplicant_conf_gen",
+    sub_dir: "wifi",
+    vendor: true,
+    licenses: [
+        "external_wpa_supplicant_8_license",
     ],
 }
